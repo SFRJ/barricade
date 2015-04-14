@@ -19,6 +19,7 @@ public class TimeLapseCalculator {
         blocker.setHowLongWasBlockedFor(
                 format("%d days, %d hours, %d minutes, %d seconds",
                         period.getDays(), period.getHours(), period.getMinutes(), period.getSeconds()));
+        blocker.setElapsedTimeInMillis(interval.toDurationMillis());
         return blocker;
     }
 }

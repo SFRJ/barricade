@@ -9,13 +9,11 @@
 <ui:composition template="WEB-INF/templates/MasterLayout.xhtml">
     <ui:define name="content">
         <h:form>
-            <p:messages id="msgs" />
-
             <p:panel>
                 <h:panelGrid columns="2" cellpadding="5">
 
                         <p:outputLabel for="yourteam" value="Your Team: "/>
-                        <p:selectOneMenu id="yourteam" value="#{newblockerbean.yourTeam}" style="width:150px" required="true">
+                        <p:selectOneMenu id="yourteam" value="#{newblockerbean.yourTeam}" style="width:150px">
                             <f:selectItem itemLabel="" itemValue="" noSelectionOption="true"/>
                             <f:selectItem itemLabel="NIM" itemValue="NIM"/>
                             <f:selectItem itemLabel="Mongoose" itemValue="Mongoose"/>
@@ -30,7 +28,7 @@
                         </p:selectOneMenu>
 
                         <p:outputLabel for="whoBlocksYou" value="Who blocks you: "/>
-                        <p:selectOneMenu id="whoBlocksYou" value="#{newblockerbean.whoBlocksYou}" style="width:150px" required="true">
+                        <p:selectOneMenu id="whoBlocksYou" value="#{newblockerbean.whoBlocksYou}" style="width:150px">
                             <f:selectItem itemLabel="" itemValue="" noSelectionOption="true"/>
                             <f:selectItem itemLabel="NIM" itemValue="NIM"/>
                             <f:selectItem itemLabel="Mongoose" itemValue="Mongoose"/>
@@ -46,7 +44,7 @@
 
 
                         <p:outputLabel for="urgency" value="Urgency: "/>
-                        <p:selectOneMenu id="urgency" value="#{newblockerbean.urgency}" style="width:150px" required="true">
+                        <p:selectOneMenu id="urgency" value="#{newblockerbean.urgency}" style="width:150px">
                             <f:selectItem itemLabel="" itemValue="" noSelectionOption="true"/>
                             <f:selectItem itemLabel="critical" itemValue="critical"/>
                             <f:selectItem itemLabel="moderate" itemValue="moderate"/>
@@ -58,9 +56,8 @@
                 </h:panelGrid>
                 <p:separator/>
 
-                <p:commandButton value="Submit" update="msgs" actionListener="#{newblockerbean.onFormSubmit}"
-                                 action="allblockers?faces-redirect=true" icon="ui-icon-check" immediate="true"/>
-                <p:commandButton value="Cancel"  action="allblockers?faces-redirect=true" icon="ui-icon-close" immediate="true"/>
+                <p:commandButton value="Submit" actionListener="#{newblockerbean.onFormSubmit}"
+                                 action="allblockers?faces-redirect=true" icon="ui-icon-check"/>
             </p:panel>
         </h:form>
 

@@ -11,6 +11,7 @@ public class Blocker {
     private final Date date;
     private String reference;
     private String howLongWasBlockedFor;
+    private long elapsedTimeInMillis;
 
     public Blocker(String yourTeam, String whoBlocksYou, String reason, String urgency, Date date, String reference) {
         this.yourTeam = yourTeam;
@@ -51,6 +52,14 @@ public class Blocker {
 
     public String getHowLongWasBlockedFor() {
         return howLongWasBlockedFor;
+    }
+
+    public long getElapsedTimeInMillis() {
+        return elapsedTimeInMillis;
+    }
+
+    public void setElapsedTimeInMillis(long elapsedTimeInMillis) {
+        this.elapsedTimeInMillis = elapsedTimeInMillis;
     }
 
     public void setHowLongWasBlockedFor(String howLongWasBlockedFor) {
