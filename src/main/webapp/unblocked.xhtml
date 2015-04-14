@@ -11,7 +11,7 @@
         Average Blocked time: <p:outputLabel value="#{storagebean.averageBlockedTime()}"/><br/>
         <br/>
         <ui:repeat value="#{allblockersbean.unblocked()}" var="blocker">
-            Blocker with Ref: <p:outputLabel value="#{blocker.reference}"/>&nbsp; was open for
+            Blocker with Ref: <p:outputLabel value="#{blocker.reference} #{blocker.briefReason()}"/>&nbsp; was open for
             <p:outputLabel value="#{blocker.howLongWasBlockedFor}"/><br/>
         </ui:repeat>
     </ui:define>

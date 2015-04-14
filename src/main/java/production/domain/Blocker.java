@@ -66,6 +66,12 @@ public class Blocker {
         this.howLongWasBlockedFor = howLongWasBlockedFor;
     }
 
+    public String briefReason() {
+        if(reason.length() > 20)
+            return " '" + reason.substring(0,20) + "...' ";
+        else return reason;
+    }
+
     @Override
     public String toString() {
         return "{" +

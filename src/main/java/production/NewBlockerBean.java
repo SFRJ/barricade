@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
-
-import static java.util.UUID.randomUUID;
+import java.util.Random;
 
 public class NewBlockerBean implements Serializable {
 
@@ -34,7 +33,12 @@ public class NewBlockerBean implements Serializable {
         //TODO Don't change the date format, there is a bug when reading from the blockers.txt file
         storageBean.block(
                 new Blocker(yourTeam, whoBlocksYou, reason, urgency,
-                       new Date(), randomUUID().toString()));
+                       new Date(), randomNumber()));
+    }
+
+    private String randomNumber() {
+        Random r = new Random( System.currentTimeMillis() );
+        return (10000 + r.nextInt(20000)) + "";
     }
 
     private void redirect() throws IOException {
