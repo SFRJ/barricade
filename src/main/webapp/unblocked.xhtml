@@ -11,9 +11,9 @@
         <ui:repeat value="#{allblockersbean.unblocked()}" var="blocker">
             <p:outputLabel value="#{blocker.yourTeam}"/>
             <p:outputLabel value="#{blocker.whoBlocksYou}"/>
-            <p:outputLabel value="#{blocker.date}"/>
             <p:outputLabel value="#{blocker.reason}"/>
-            <p:outputLabel value="#{blocker.urgency}"/> <br/>
+            <p:outputLabel value="#{blocker.urgency}"/>
+            <p:outputLabel value="#{blocker.howLongWasBlockedFor}"/><br/>
         </ui:repeat>
     </ui:define>
 </ui:composition>

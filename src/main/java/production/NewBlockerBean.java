@@ -8,7 +8,6 @@ import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static java.util.UUID.randomUUID;
@@ -33,10 +32,9 @@ public class NewBlockerBean implements Serializable {
 
     public void onFormSubmit(ActionEvent actionEvent) throws IOException {
         //TODO Don't change the date format, there is a bug when reading from the blockers.txt file
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy@hh:mm");
         storageBean.block(
                 new Blocker(yourTeam, whoBlocksYou, reason, urgency,
-                        dateFormat.format(new Date()), randomUUID().toString()));
+                       new Date(), randomUUID().toString()));
     }
 
     private void redirect() throws IOException {

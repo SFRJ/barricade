@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static production.support.TimeLapseCalculator.lapseFrom;
+
 public class StorageBean {
 
     private static List<Blocker> blocked = new ArrayList<>();
@@ -15,8 +17,8 @@ public class StorageBean {
         blocked.add(blocker);
     }
 
-    public void unblock(Blocker blocker) throws IOException {
-        unblocked.add(blocker);
+    public void unblock(Blocker blocker) throws Exception {
+        unblocked.add(lapseFrom(blocker));
         delete(blocker);
     }
 

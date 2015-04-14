@@ -5,7 +5,6 @@ import production.domain.Blocker;
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class UnblockBean {
 
@@ -16,7 +15,7 @@ public class UnblockBean {
         storageBean = new StorageBean();
     }
 
-    public void unblock(Object o) throws IOException {
+    public void unblock(Object o) throws Exception {
         storageBean.unblock((Blocker) o);
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse)context.getExternalContext().getResponse();
