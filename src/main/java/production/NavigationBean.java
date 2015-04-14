@@ -20,6 +20,10 @@ public class NavigationBean implements Serializable {
         redirectTo("unblocked.xhtml");
     }
 
+    public void about() throws IOException {
+        redirectTo("about.xhtml");
+    }
+
     private void redirectTo(String page) throws IOException {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse)context.getExternalContext().getResponse();
