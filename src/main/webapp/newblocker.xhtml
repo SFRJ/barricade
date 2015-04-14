@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/templates/MasterLayout.xhtml">
+    <ui:define name="content">
+        <b>COMPOSITION FOR PAGE B</b>
+        Your team
+        Who blocks you
+        Reason
+        Urgency
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:panel header="New Blocker" style="margin-bottom:10px;">
+                <h:panelGrid columns="2" cellpadding="5">
+
+                    <p:outputLabel for="yourteam" value="Your Team: " />
+                    <p:selectOneMenu id="yourteam" value="#{newblockerbean.yourTeam}" style="width:150px">
+                        <f:selectItem itemLabel="" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="NIM" itemValue="NIM" />
+                        <f:selectItem itemLabel="Mongoose" itemValue="Mongoose" />
+                        <f:selectItem itemLabel="Meerkat" itemValue="Meerkat" />
+                        <f:selectItem itemLabel="Halo" itemValue="Halo" />
+                        <f:selectItem itemLabel="Sonique" itemValue="Sonique" />
+                        <f:selectItem itemLabel="Five-Oh" itemValue="Five-Oh" />
+                        <f:selectItem itemLabel="Lando" itemValue="Lando" />
+                        <f:selectItem itemLabel="Release Testing" itemValue="Release Testing" />
+                        <f:selectItem itemLabel="Database Management" itemValue="Database Management" />
+                        <f:selectItem itemLabel="System Administration" itemValue="System Administration" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="whoBlocksYou" value="Who blocks you: " />
+                    <p:selectOneMenu id="whoBlocksYou" value="#{newblockerbean.whoBlocksYou}" style="width:150px">
+                        <f:selectItem itemLabel="" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="NIM" itemValue="NIM" />
+                        <f:selectItem itemLabel="Mongoose" itemValue="Mongoose" />
+                        <f:selectItem itemLabel="Meerkat" itemValue="Meerkat" />
+                        <f:selectItem itemLabel="Halo" itemValue="Halo" />
+                        <f:selectItem itemLabel="Sonique" itemValue="Sonique" />
+                        <f:selectItem itemLabel="Five-Oh" itemValue="Five-Oh" />
+                        <f:selectItem itemLabel="Lando" itemValue="Lando" />
+                        <f:selectItem itemLabel="Release Testing" itemValue="Release Testing" />
+                        <f:selectItem itemLabel="Database Management" itemValue="Database Management" />
+                        <f:selectItem itemLabel="System Administration" itemValue="System Administration" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="urgency" value="Urgency: " />
+                    <p:selectOneMenu id="urgency" value="#{newblockerbean.urgency}" style="width:150px">
+                        <f:selectItem itemLabel="" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="critical" itemValue="critical" />
+                        <f:selectItem itemLabel="moderate" itemValue="moderate" />
+                        <f:selectItem itemLabel="normal" itemValue="normal" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="reason" value="Reason: "/>
+                    <p:inputTextarea id="reason" rows="6" cols="300" value="#{newblockerbean.reason}"/>
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Submit" update="msgs" actionListener="#{newblockerbean.onFormSubmit}" action="allblockers?faces-redirect=true"  icon="ui-icon-check" />
+            </p:panel>
+        </h:form>
+
+
+    </ui:define>
+</ui:composition>
+
+
+</html>

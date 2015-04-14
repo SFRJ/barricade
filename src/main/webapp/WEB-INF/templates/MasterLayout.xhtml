@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>www.javing.blogspot.com</title>
+</h:head>
+<h:body>
+    <h:form>
+
+        <p:layout style="min-width:400px;min-height:200px; height: 800px">
+            <p:layoutUnit position="north" resizable="false" size="100" minSize="40" maxSize="200">
+                <p:layout style="min-width:400px;min-height:200px;">
+                    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" maxSize="200">
+                        <p:graphicImage value="resources/images/barricade.gif" width="80" height="70"/>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center" resizable="false" size="100" minSize="40" maxSize="200">
+                        <p:outputLabel value="Barricade -" style="font-size: xx-large"/>
+                        <p:outputLabel value=" A blockers awareness panel." style="font-size: xx-large"/>
+                        <br/>
+                        <p:commandLink id="allBlockers" actionListener="#{navigationbean.allBlockers}" ajax="false">
+                            <h:outputText value="All Blockers" />
+                        </p:commandLink>
+                        <span/><span/>
+                        <p:commandLink id="newBlocker"  actionListener="#{navigationbean.newBlocker}" ajax="false">
+                            <h:outputText value="New Blocker" />
+                        </p:commandLink>
+                        <span/><span/>
+                        <p:commandLink id="unblocked"  actionListener="#{navigationbean.unblocked}" ajax="false">
+                            <h:outputText value="Unblocked" />
+                        </p:commandLink>
+                    </p:layoutUnit>
+                </p:layout>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" resizable="false" size="100" minSize="40" maxSize="200">
+                <ui:insert name="content">
+                    Default content
+                </ui:insert>
+            </p:layoutUnit>
+        </p:layout>
+    </h:form>
+</h:body>
+</html>
