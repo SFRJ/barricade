@@ -6,19 +6,41 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
+
 <ui:composition template="WEB-INF/templates/MasterLayout.xhtml">
+
     <ui:define name="content">
         <ui:repeat value="#{allblockersbean.blockers()}" var="blocker">
-            <p:outputLabel value="#{blocker.yourTeam}"/>
-            <p:outputLabel value="#{blocker.whoBlocksYou}"/>
-            <p:outputLabel value="#{blocker.date}"/>
-            <p:outputLabel value="#{blocker.reason}"/>
-            <p:outputLabel value="#{blocker.urgency}"/> <br/>
-            <p:commandLink id="unblock" actionListener="#{unblockbean.unblock(blocker)}" ajax="false">
-                <h:outputText value="Unblock" />
-            </p:commandLink>
+
+            <div class="box">
+
+                <div class="blocker-content">
+                    <div class="ref"><p:outputLabel value="#{blocker.reference}"/>
+
+                        <div class="date"><p:outputLabel value="#{blocker.date}"/></div>
+                    </div>
+                    <div> Team
+                        <p:outputLabel value="#{blocker.whoBlocksYou}"/>
+
+                        is blocking team <p:outputLabel value="#{blocker.yourTeam}"/>
+
+                        <div class="urgency">Urgency: &nbsp;<p:outputLabel value="#{blocker.urgency}"/></div>
+                    </div>
+
+                    <div><p:outputLabel value="#{blocker.reason}"/></div>
+                    <br/>
+                    <div class="urgency"><p:commandLink id="unblock" actionListener="#{unblockbean.unblock(blocker)}" ajax="false">
+                        <h:outputText value="Unblock"/>
+                    </p:commandLink>
+                    </div>
+                </div>
+                <!-- blocker content end -->
+            </div>
+
         </ui:repeat>
+
     </ui:define>
+
 </ui:composition>
 
 </html>
